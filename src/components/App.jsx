@@ -1,16 +1,20 @@
+import { useState } from "react";
+import { Button } from "./Button/Button";
+import { ContactForm } from "./ContactForm/ContactForm";
+
 export const App = () => {
+
+  const{contacts, setContacts} = useState([])
+  const {isListShown, setIslistShown} = useState(false)
+
+  const showContactsList = ()=>{
+    setIslistShown(true)
+
+  }
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+    <ContactForm/>
+      <Button text='Show contacts' clickHandler ={showContactsList}></Button>
+    </>
   );
 };
