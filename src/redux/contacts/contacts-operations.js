@@ -13,5 +13,23 @@ export const fetchContacts = createAsyncThunk('contacts/fetchAll', async (_,{rej
     return rejectWithValue(error)
     
 }})
-export const addContact  = createAsyncThunk('contacts/addContact')
-export const deleteContact = createAsyncThunk('contacts/deleteContact')
+export const addContact  = createAsyncThunk('contacts/addContact', async (user, {rejectWithValue})=>
+{try {
+  const {data}=  await axios.post(`/contacts`, user)
+  console.log(data);
+  return data
+    
+} catch (error) {
+    return rejectWithValue(error)
+    
+}})
+export const deleteContact = createAsyncThunk('contacts/deleteContact', async (id, {rejectWithValue})=>
+{try {
+   await axios.delete(`/contacts/${id}`)
+   //* обязательно передать (return id) в редюсер
+  return id
+    
+} catch (error) {
+    return rejectWithValue(error)
+    
+}})

@@ -7,19 +7,25 @@ import { ContactsList } from "./ContactsList/ContactsList";
 
 export const App = () => {
 
-  // const{contacts, setContacts} = useState([])
   const [isListShown, setIsListShown] = useState(false)
+  const [isFormShown, setFormShown] = useState(false)
   const dispatch = useDispatch()
 
   const showContactsList = ()=>{
     setIsListShown(true)
     dispatch(fetchContacts())
+  }
 
+  const showForm =()=>{
+    setFormShown(true)
   }
   return (
-    <>{isListShown && <ContactsList/>}
-    <ContactForm/>
-      <Button text='Show contacts' clickHandler ={showContactsList}></Button>
+    <>
+    {isFormShown && <ContactForm/>}
+    
+    <Button text='Show form' clickHandler ={showForm}></Button> 
+      
+      {isListShown ? <ContactsList/> : <Button text='Show contacts' clickHandler ={showContactsList}></Button> }
     </>
   );
 };
