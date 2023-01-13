@@ -13,7 +13,7 @@ import * as yup from 'yup';
 
 // import { addContact } from 'redux/contacts/contactsSlice';
 
-export const ContactForm = () => {
+export const ContactForm = ({ closeForm }) => {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
@@ -25,7 +25,6 @@ export const ContactForm = () => {
 
   const formik = useFormik({
     initialValues: {
-    
       name: '',
       phone: '',
       // status: '',
@@ -45,7 +44,6 @@ export const ContactForm = () => {
     }),
 
     onSubmit: async (values, { resetForm }) => {
-
       const isNameExist = contacts.find(({ name, phone }) => {
         return name === values.name || phone === values.phone;
       });
@@ -57,11 +55,11 @@ export const ContactForm = () => {
       // const stat = await getYesNoStatus();
       // values.status = stat;
 
-
       dispatch(addContact(values));
 
       Notify.success(`${values.name} was successfully added to contacts`);
-      resetForm();
+      // resetForm();
+      closeForm();
     },
   });
 

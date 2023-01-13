@@ -18,6 +18,10 @@ export const App = () => {
   const showForm = () => {
     setFormShown(true);
   };
+
+  const closeForm = () => {
+    setFormShown(false);
+  };
   return (
     <>
       {/* {isFormShown && <ContactForm />} */}
@@ -29,7 +33,7 @@ export const App = () => {
           {!isFormShown && (
             <Button text="Add contact" clickHandler={showForm}></Button>
           )}
-          {isFormShown && <ContactForm />}
+          {isFormShown && <ContactForm closeForm={closeForm} />}
           <ContactsList />
         </>
       ) : (
