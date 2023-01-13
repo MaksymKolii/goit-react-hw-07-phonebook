@@ -4,7 +4,7 @@ import { Form, Label, Input, Button, Div } from './ContactForm.styled';
 // import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/contacts-operations';
-import { getContacts } from 'redux/contacts/contacts-selectors';
+import { selectContacts } from 'redux/contacts/contacts-selectors';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import { getYesNoStatus } from 'components/services/yesNoApl';
 
@@ -14,7 +14,7 @@ import * as yup from 'yup';
 // import { addContact } from 'redux/contacts/contactsSlice';
 
 export const ContactForm = ({ closeForm }) => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const nameTemplates =
