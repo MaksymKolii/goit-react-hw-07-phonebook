@@ -7,6 +7,8 @@ import { ContactsList } from './ContactsList/ContactsList';
 import { selectIsLoading } from '../redux/contacts/contacts-selectors';
 import { Loader } from './Loader/Loader';
 import { Filter } from './Filter/Filter';
+import { Section } from './Section/Section';
+import { GlobalStyle } from './Utils/GlobalStyle';
 
 export const App = () => {
   const [isListShown, setIsListShown] = useState(false);
@@ -28,22 +30,28 @@ export const App = () => {
   };
   return (
     <>
-      {/* {isFormShown && <ContactForm />} */}
-      {/* <Button text="Add contact" clickHandler={showForm}></Button> */}
+      <Section>
+        {isListShown ? (
+          <>
+            {isLoading && <Loader />}
+            {!isFormShown && !isLoading && (
+              <Button text="Add contact" clickHandler={showForm}></Button>
+            )}
+            {isFormShown && <ContactForm closeForm={closeForm} />}
+            <Filter />
+            <ContactsList />
+          </>
+        ) : (
+          <>
+            <Button
+              text="Show contacts"
+              clickHandler={showContactsList}
+            ></Button>
+          </>
+        )}
+      </Section>
 
-      {isListShown ? (
-        <>
-          {isLoading && <Loader />}
-          {!isFormShown && !isLoading && (
-            <Button text="Add contact" clickHandler={showForm}></Button>
-          )}
-          {isFormShown && <ContactForm closeForm={closeForm} />}
-          <Filter />
-          <ContactsList />
-        </>
-      ) : (
-        <Button text="Show contacts" clickHandler={showContactsList}></Button>
-      )}
+      <GlobalStyle />
     </>
   );
 };

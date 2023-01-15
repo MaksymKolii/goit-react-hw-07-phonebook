@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { Form, Label, Input, Button, Div } from './ContactForm.styled';
+import { Form, Label, Input, Div, Button } from './ContactForm.styled';
+// import { Button } from 'components/Button/Button';
 // import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/contacts-operations';
@@ -95,7 +96,7 @@ export const ContactForm = ({ closeForm }) => {
       {formik.touched.phone && formik.errors.phone ? (
         <Div>{formik.errors.phone}</Div>
       ) : null}
-      <Button type="submit">Add contact</Button>
+      <Button type="submit">Press to submit</Button>
     </Form>
   );
 };
