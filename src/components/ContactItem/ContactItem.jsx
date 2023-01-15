@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Avatar from 'react-avatar';
 
-export const ContactListItem = ({ id, name, number, createdAt }) => {
+export const ContactListItem = ({ id, name, phone, createdAt }) => {
   const dispatch = useDispatch();
 
   const timeReduser = data => {
@@ -35,7 +35,7 @@ export const ContactListItem = ({ id, name, number, createdAt }) => {
         Name:<Span>{name}</Span>
       </P>
       <P>
-        Phone number:<Span>{number}</Span>
+        Phone number:<Span>{phone}</Span>
       </P>
       <P>
         Created:<Span>{timeReduser(createdAt)}</Span>
