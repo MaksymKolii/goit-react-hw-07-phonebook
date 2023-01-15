@@ -5,6 +5,7 @@ import { ListUl } from './ContactList.styled';
 // import {selectContactsOptions} from'../../redux/contacts/contacts-selectors'
 //* re export
 import { contactsSelectors } from 'redux/contacts';
+// import {selectContactsOptionsWithCreateReduser} from 'redux/contacts'
 
 export const ContactsList = () => {
   const options = useSelector(contactsSelectors.selectContactsOptions);
