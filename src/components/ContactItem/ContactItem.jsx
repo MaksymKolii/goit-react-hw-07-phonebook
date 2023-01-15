@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { Span, P, List } from './ContactItem.styled';
 
-// import { selectIsLoading } from '../../redux/contacts/contacts-selectors';
-import { deleteContact } from '../../redux/contacts/contacts-operations';
+// import { deleteContact } from '../../redux/contacts/contacts-operations';
+import { contactsOperations } from 'redux/contacts';
 import { IconButton } from '../IconButton/IconButton';
-// import { LoaderRings } from 'components/Loader/Loader';
+
 import { ReactComponent as DeleteIcon } from 'Icons/delete2.svg';
 import { useDispatch } from 'react-redux';
 
@@ -13,7 +13,7 @@ import Avatar from 'react-avatar';
 
 export const ContactListItem = ({ id, name, number, createdAt }) => {
   const dispatch = useDispatch();
-  // const isDeleting = useSelector(selectIsLoading);
+
   const timeReduser = data => {
     const year = data.slice(0, 10);
     const time = data.slice(11, 19);
@@ -21,7 +21,7 @@ export const ContactListItem = ({ id, name, number, createdAt }) => {
   };
 
   const onDeleteContact = () => {
-    dispatch(deleteContact(id));
+    dispatch(contactsOperations.deleteContact(id));
     Notify.success(`Contact successfully removed`);
   };
 
