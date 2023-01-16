@@ -4,6 +4,8 @@ import { Span, P, List } from './ContactItem.styled';
 // import { deleteContact } from '../../redux/contacts/contacts-operations';
 import { contactsOperations } from 'redux/contacts';
 import { IconButton } from '../IconButton/IconButton';
+// import { Button } from './ContactItem.styled';
+// import { UpdateForm } from 'components/UpdateForm/UpdateForm';
 
 import { ReactComponent as DeleteIcon } from 'Icons/delete2.svg';
 import { useDispatch } from 'react-redux';
@@ -11,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Avatar from 'react-avatar';
 
-export const ContactListItem = ({ id, name, phone, createdAt }) => {
+export const ContactListItem = ({ id, name, phone, createdAt}) => {
   const dispatch = useDispatch();
 
   const timeReduser = data => {
@@ -24,6 +26,8 @@ export const ContactListItem = ({ id, name, phone, createdAt }) => {
     dispatch(contactsOperations.deleteContact(id));
     Notify.success(`Contact successfully removed`);
   };
+
+
 
   return (
     <List>
@@ -45,6 +49,8 @@ export const ContactListItem = ({ id, name, phone, createdAt }) => {
         {/* {isDeleting && <LoaderRings />} */}
         <DeleteIcon width={20} height={20}></DeleteIcon>
       </IconButton>
+      {/* <Button onClick={showUpdateForm}>Update User</Button>
+      <UpdateForm userToUpdate={option}/> */}
     </List>
   );
 };
