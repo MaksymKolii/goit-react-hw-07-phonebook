@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { ContactListItem } from '../ContactItem/ContactItem';
 import { ListUl } from './ContactList.styled';
 import { Button } from '../Button/Button.styled';
