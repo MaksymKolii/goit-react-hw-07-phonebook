@@ -49,8 +49,7 @@ export const ContactListItem = ({ id, name, phone, createdAt}) => {
         {/* {isDeleting && <LoaderRings />} */}
         <DeleteIcon width={20} height={20}></DeleteIcon>
       </IconButton>
-      {/* <Button onClick={showUpdateForm}>Update User</Button>
-      <UpdateForm userToUpdate={option}/> */}
+    
     </List>
   );
 };
