@@ -1,11 +1,11 @@
 import React from 'react';
 // import { useFormik } from 'formik';
-import { Form, Label, Input, Div, Button } from './UpdateForm.styled';
+import { Form, Label, Input, Button } from './UpdateForm.styled';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import {  useDispatch } from 'react-redux';
 import { updateContact } from 'redux/contacts/contacts-operations';
-import { selectContacts } from 'redux/contacts/contacts-selectors';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { selectContacts } from 'redux/contacts/contacts-selectors';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // import PropTypes from 'prop-types';
 // import * as yup from 'yup';
@@ -32,7 +32,7 @@ export const UpdateForm = ({ closeForm, contactToUpdate }) => {
         break;
       case 'phone':
         setPhone(value);
-
+        break
       default:
         break;
     }
