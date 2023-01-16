@@ -1,9 +1,11 @@
 import css from './Button.module.css';
+import {  ButtonB } from './Button.styled';
+
 export const Button = ({ text, clickHandler, type }) => {
   return (
-    <button type={type} onClick={clickHandler}>
+    <ButtonB type={type} onClick={clickHandler}>
       {text}
-    </button>
+    </ButtonB>
   );
 };
 
